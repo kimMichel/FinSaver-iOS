@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
     var purpleCardView: UIView!
     var planTitleLabel: UILabel!
     var planValueLabel: UILabel!
+    var detailLabel: UILabel!
+    var tableView: UITableView!
     
     override func loadView() {
         view = UIView()
@@ -38,6 +40,18 @@ class HomeViewController: UIViewController {
         planValueLabel.text = "R$ 300,00"
         view.addSubview(planValueLabel)
         
+        detailLabel = UILabel()
+        detailLabel.translatesAutoresizingMaskIntoConstraints = false
+        detailLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        detailLabel.textColor = .white
+        detailLabel.text = "Detalhe"
+        view.addSubview(detailLabel)
+        
+        tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
+        view.addSubview(tableView)
+        
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Novo Plano", for: .normal)
@@ -63,6 +77,16 @@ class HomeViewController: UIViewController {
             planValueLabel.centerYAnchor.constraint(equalTo: purpleCardView.centerYAnchor, constant: 10),
             planValueLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             
+            // DetailLabel Constraints
+            detailLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            detailLabel.bottomAnchor.constraint(equalTo: purpleCardView.bottomAnchor, constant: -20),
+            
+            // TableView Constraints
+            tableView.topAnchor.constraint(equalTo: purpleCardView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            
             // Button Constraints
             button.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
             button.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20),
@@ -73,7 +97,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     @objc func newPlanTapped(_ sender: UIButton) {
@@ -83,3 +109,19 @@ class HomeViewController: UIViewController {
     
 }
 
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as! HomeTableViewCell
+        cell.configure(title: "Reserva de Emergencia", value: "R$ 15.000,00")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+}
