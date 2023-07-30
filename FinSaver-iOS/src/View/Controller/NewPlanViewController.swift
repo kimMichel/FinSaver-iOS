@@ -1,0 +1,62 @@
+//
+//  NewPlanViewController.swift
+//  FinSaver-iOS
+//
+//  Created by Michel Jaejin Kim on 28/07/23.
+//
+
+import UIKit
+
+class NewPlanViewController: UIViewController {
+    
+    var planTitleLabel: UILabel!
+    var planValueField: UITextField!
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .systemPurple
+        
+        planTitleLabel = UILabel()
+        planTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        planTitleLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        planTitleLabel.numberOfLines = 0
+        planTitleLabel.textColor = .white
+        planTitleLabel.text = "Reserva de emergencia"
+        view.addSubview(planTitleLabel)
+        
+        planValueField = UITextField()
+        planValueField.translatesAutoresizingMaskIntoConstraints = false
+        planValueField.placeholder = "Ex: R$ 15.000,00"
+        planValueField.keyboardType = .decimalPad
+        planValueField.textAlignment = .center
+        planValueField.textColor = .white
+        planValueField.font = UIFont.boldSystemFont(ofSize: 44)
+        view.addSubview(planValueField)
+        
+        NSLayoutConstraint.activate([
+            planTitleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            planTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            planValueField.topAnchor.constraint(equalTo: planTitleLabel.bottomAnchor, constant: 20),
+            planValueField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

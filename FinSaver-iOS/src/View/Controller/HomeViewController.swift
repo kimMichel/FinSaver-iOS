@@ -40,13 +40,6 @@ class HomeViewController: UIViewController {
         planValueLabel.text = "R$ 300,00"
         view.addSubview(planValueLabel)
         
-        detailLabel = UILabel()
-        detailLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailLabel.font = UIFont.boldSystemFont(ofSize: 22)
-        detailLabel.textColor = .white
-        detailLabel.text = "Detalhe"
-        view.addSubview(detailLabel)
-        
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
@@ -74,12 +67,8 @@ class HomeViewController: UIViewController {
             planTitleLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             
             // PlanValueLabel Constraints
-            planValueLabel.centerYAnchor.constraint(equalTo: purpleCardView.centerYAnchor, constant: 10),
+            planValueLabel.centerYAnchor.constraint(equalTo: purpleCardView.centerYAnchor, constant: 20),
             planValueLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-            
-            // DetailLabel Constraints
-            detailLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-            detailLabel.bottomAnchor.constraint(equalTo: purpleCardView.bottomAnchor, constant: -20),
             
             // TableView Constraints
             tableView.topAnchor.constraint(equalTo: purpleCardView.bottomAnchor),
@@ -103,7 +92,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func newPlanTapped(_ sender: UIButton) {
-        print("Button was tapped!")
+        performSegue(withIdentifier: "goToNewPlanScreen", sender: self)
     }
     
     
