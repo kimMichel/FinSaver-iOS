@@ -11,6 +11,7 @@ class NewPlanViewController: UIViewController {
     
     var planTitleLabel: UILabel!
     var planValueField: UITextField!
+    var jurosLabel: UILabel!
     
     override func loadView() {
         view = UIView()
@@ -33,12 +34,22 @@ class NewPlanViewController: UIViewController {
         planValueField.font = UIFont.boldSystemFont(ofSize: 44)
         view.addSubview(planValueField)
         
+        jurosLabel = UILabel()
+        jurosLabel.translatesAutoresizingMaskIntoConstraints = false
+        jurosLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        jurosLabel.textColor = .white
+        jurosLabel.text = "Taxa de juros"
+        view.addSubview(jurosLabel)
+        
         NSLayoutConstraint.activate([
             planTitleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             planTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             planValueField.topAnchor.constraint(equalTo: planTitleLabel.bottomAnchor, constant: 20),
-            planValueField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            planValueField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            jurosLabel.topAnchor.constraint(equalTo: planValueField.bottomAnchor, constant: 40),
+            jurosLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20)
         ])
     }
 
