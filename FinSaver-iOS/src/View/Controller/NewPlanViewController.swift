@@ -12,6 +12,7 @@ class NewPlanViewController: UIViewController {
     var planTitleLabel: UILabel!
     var planValueField: UITextField!
     var jurosLabel: UILabel!
+    var jurosValueField: UITextField!
     
     override func loadView() {
         view = UIView()
@@ -38,8 +39,22 @@ class NewPlanViewController: UIViewController {
         jurosLabel.translatesAutoresizingMaskIntoConstraints = false
         jurosLabel.font = UIFont.boldSystemFont(ofSize: 22)
         jurosLabel.textColor = .white
-        jurosLabel.text = "Taxa de juros"
+        jurosLabel.text = "Taxa de juros:"
         view.addSubview(jurosLabel)
+        
+        jurosValueField = UITextField()
+        jurosValueField.translatesAutoresizingMaskIntoConstraints = false
+        jurosValueField.placeholder = "Ex: 0.0"
+        jurosValueField.borderStyle = .roundedRect
+        jurosValueField.backgroundColor = .systemPurple
+        jurosValueField.layer.borderWidth = 2.0
+        jurosValueField.layer.cornerRadius = 10
+        jurosValueField.layer.borderColor = UIColor.white.cgColor
+        jurosValueField.keyboardType = .decimalPad
+        jurosValueField.textAlignment = .center
+        jurosValueField.textColor = .white
+        jurosValueField.font = UIFont.boldSystemFont(ofSize: 22)
+        view.addSubview(jurosValueField)
         
         NSLayoutConstraint.activate([
             planTitleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
@@ -49,7 +64,10 @@ class NewPlanViewController: UIViewController {
             planValueField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             jurosLabel.topAnchor.constraint(equalTo: planValueField.bottomAnchor, constant: 40),
-            jurosLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20)
+            jurosLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20),
+            
+            jurosValueField.centerYAnchor.constraint(equalTo: jurosLabel.centerYAnchor),
+            jurosValueField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -20),
         ])
     }
 

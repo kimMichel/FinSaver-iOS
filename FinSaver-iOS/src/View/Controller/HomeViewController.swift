@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
-        
+
         purpleCardView = UIView()
         purpleCardView.translatesAutoresizingMaskIntoConstraints = false
         purpleCardView.layer.cornerRadius = 15

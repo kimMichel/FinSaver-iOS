@@ -15,6 +15,7 @@
 		1EA6FFCE2A732B3400C0DC48 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6FFCD2A732B3400C0DC48 /* HomeViewController.swift */; };
 		1EA6FFD62A7448C700C0DC48 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6FFD52A7448C700C0DC48 /* HomeTableViewCell.swift */; };
 		1EA6FFD92A74AF1400C0DC48 /* NewPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6FFD82A74AF1400C0DC48 /* NewPlanViewController.swift */; };
+		1EA6FFDC2A79E20200C0DC48 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6FFDB2A79E20200C0DC48 /* RadioButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1EA6FFCD2A732B3400C0DC48 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1EA6FFD52A7448C700C0DC48 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		1EA6FFD82A74AF1400C0DC48 /* NewPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanViewController.swift; sourceTree = "<group>"; };
+		1EA6FFDB2A79E20200C0DC48 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		1EA6FFCC2A732A4600C0DC48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1EA6FFDA2A79E1F200C0DC48 /* Component */,
 				1EA6FFD72A74AE2600C0DC48 /* Controller */,
 				1EA6FFD22A7436AB00C0DC48 /* Cells */,
 			);
@@ -119,6 +122,14 @@
 				1EA6FFD82A74AF1400C0DC48 /* NewPlanViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1EA6FFDA2A79E1F200C0DC48 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1EA6FFDB2A79E20200C0DC48 /* RadioButton.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 				1EA6FFD92A74AF1400C0DC48 /* NewPlanViewController.swift in Sources */,
 				1EA6FFC72A71E8B900C0DC48 /* SceneDelegate.swift in Sources */,
 				1EA6FFC62A71E8B900C0DC48 /* AppDelegate.swift in Sources */,
+				1EA6FFDC2A79E20200C0DC48 /* RadioButton.swift in Sources */,
 				1EA6FFD62A7448C700C0DC48 /* HomeTableViewCell.swift in Sources */,
 				1EA6FFCE2A732B3400C0DC48 /* HomeViewController.swift in Sources */,
 			);
